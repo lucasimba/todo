@@ -1,0 +1,1 @@
+toda a lógica, conexão com o banco, leitura.
