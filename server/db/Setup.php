@@ -15,7 +15,7 @@ class Setup
         // $this -> pdo = $pdo;
         // throw new \Exception('Not implemented');
 
-        $sql = "CREATE DATABASE IF NOT EXISTS" . DB;
+        $sql = "CREATE DATABASE IF NOT EXISTS " . DB;
         $pdo->exec($sql);
     }
     public static function create_table(PDO $pdo)

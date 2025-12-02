@@ -1,5 +1,17 @@
 <?php
 // Load das tarefas
+require_once(__DIR__ . '/server/objects/task.php');
+require_once(__DIR__ . '/server/pdo/TaskPDO.php');
+
+$task = new Task('Teste TESTE', true, 1);
+$pdo = new TaskPDO();
+
+// $pdo->create($task);
+echo 'ANTES :: ' . print_r($pdo->get_task($task->id)) . '<br>';
+$pdo->update($task);
+echo print_r($pdo->get_all());
+echo 'DEPOIS :: ' . print_r($pdo->get_task($task->id)) . '<br>';
+
 ?>
 
 <!DOCTYPE html>
