@@ -1,5 +1,5 @@
 <?php
-class task
+class Task
 {
     // fala pro php que o valor pode ser nulo ou um número inteiro
     public ?int $id = null;

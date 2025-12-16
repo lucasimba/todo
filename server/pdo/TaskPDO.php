@@ -34,7 +34,7 @@ class TaskPDO
         return $sql-> fetchAll();
     }
 
-    public function get_task(int $id)
+    public function get_by_id (int $id)
     {
         $query = 'SELECT id, description, done FROM tasks WHERE id = :id';
         $sql = $this->pdo->prepare($query);
@@ -64,6 +64,21 @@ class TaskPDO
             'id' => $object->id
         ]);
     }
-    public function check() {}
-    public function remove_task() {}
+    public function delete(int $id) 
+    {
+        $query = "DELETE FROM tasks WHERE id = :id";
+        $sql = $this->pdo->prepare($query);
+
+        $sql->execute([
+            'id' => $id
+        ]);
+    }
+
+    public function delete_all()
+    {
+        $query = "TRUNCATE TABLE tasks";
+        $sql = $this->pdo->prepare($query);
+        
+        $sql->execute();
+    }
 }
